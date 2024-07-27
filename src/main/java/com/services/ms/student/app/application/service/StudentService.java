@@ -47,8 +47,9 @@ public class StudentService implements StudentServicePort {
     @Override
     public void deleteById(Long id) {
         if (persistencePort.findById(id).isEmpty()){
-            persistencePort.deleteById(id);
+            throw new StudentNotFoundException();
         }
+        persistencePort.deleteById(id);
     }
     
 }
