@@ -14,7 +14,6 @@ import static com.services.ms.student.app.utils.ErrorCatalogEnum.STUDENT_NOT_FOU
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.INVALID_STUDENT;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.stream.Collectors;
 
 
