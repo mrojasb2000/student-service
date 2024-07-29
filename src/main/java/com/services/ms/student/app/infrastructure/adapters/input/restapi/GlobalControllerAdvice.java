@@ -1,5 +1,6 @@
 package com.services.ms.student.app.infrastructure.adapters.input.restapi;
 
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -38,7 +39,7 @@ public class GlobalControllerAdvice {
                 .code(INVALID_STUDENT.getCode())
                 .message(INVALID_STUDENT.getMessage())
                 .details(result.getFieldErrors().stream()
-                    .map(fieldError -> fieldError.getDefaultMessage())
+                    .map(DefaultMessageSourceResolvable::getDefaultMessage)
                     .collect(Collectors.toList())
                 )
                 .timestamp(LocalDateTime.now())
