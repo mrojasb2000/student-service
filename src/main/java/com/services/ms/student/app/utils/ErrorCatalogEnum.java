@@ -1,5 +1,8 @@
 package com.services.ms.student.app.utils;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorCatalogEnum {
 
     STUDENT_NOT_FOUND("ERR_STUDENT_001", "Student not found."),
