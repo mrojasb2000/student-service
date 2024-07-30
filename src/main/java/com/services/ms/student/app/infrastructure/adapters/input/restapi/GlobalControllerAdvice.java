@@ -12,6 +12,7 @@ import com.services.ms.student.app.domain.exception.StudentNotFoundException;
 import com.services.ms.student.app.domain.model.ErrorResponse;
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.STUDENT_NOT_FOUND;
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.INVALID_STUDENT;
+import static com.services.ms.student.app.utils.ErrorCatalogEnum.GENERIC_ERROR;
 
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
@@ -44,4 +45,15 @@ public class GlobalControllerAdvice {
                 .timestamp(LocalDateTime.now())
                 .build();
    }
+
+   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+   @ExceptionHandler(Exception.class)
+   public ErrorResponse handlerInternalServerErrorException() {
+    return ErrorResponse.builder()
+            .code(GENERIC_ERROR.getCode())
+            .message(GENERIC_ERROR.getMessage())
+            .timestamp(LocalDateTime.now())
+            .build();
+   } 
+
 }
