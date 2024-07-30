@@ -15,6 +15,7 @@ import static com.services.ms.student.app.utils.ErrorCatalogEnum.INVALID_STUDENT
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.GENERIC_ERROR;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 
@@ -48,10 +49,12 @@ public class GlobalControllerAdvice {
 
    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
    @ExceptionHandler(Exception.class)
-   public ErrorResponse handlerInternalServerErrorException() {
+   public ErrorResponse handlerInternalServerErrorException(Exception e) {
+    
     return ErrorResponse.builder()
             .code(GENERIC_ERROR.getCode())
             .message(GENERIC_ERROR.getMessage())
+            .details(Collections.singletonList(e.getMessage()))
             .timestamp(LocalDateTime.now())
             .build();
    } 
