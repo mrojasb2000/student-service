@@ -16,28 +16,28 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StudentPersistenceAdapter implements StudentPersistencePort{
 
-    private final StudentRepository studentRepository;
+    private final StudentRepository repository;
     private final StudentPersistenceMapper mapper;
 
     @Override
     public Optional<Student> findById(Long id) {
-        return studentRepository.findById(id)
+        return repository.findById(id)
                 .map(mapper::toStudent);
     }
 
     @Override
     public List<Student> findAll() {
-        return mapper.toStudentList(studentRepository.findAll());
+        return mapper.toStudentList(repository.findAll());
     }
 
     @Override
     public Student save(Student student) {
-       return mapper.toStudent(studentRepository.save(mapper.toStudentEntoEntity(student)));
+       return mapper.toStudent(repository.save(mapper.toStudentEntity(student)));
     }
 
     @Override
     public void deleteById(Long id) {
-       studentRepository.deleteById(id);
+       repository.deleteById(id);
     }
     
 }

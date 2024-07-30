@@ -3,13 +3,13 @@ package com.services.ms.student.app.infrastructure.adapters.output.persistence.m
 import java.util.List;
 
 import org.mapstruct.Mapper;
-
+import org.mapstruct.ReportingPolicy;
 import com.services.ms.student.app.domain.model.Student;
 import com.services.ms.student.app.infrastructure.adapters.output.persistence.entity.StudentEntity;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.WARN)
 public interface StudentPersistenceMapper {
-    StudentEntity toStudentEntoEntity(Student student);
+    StudentEntity toStudentEntity(Student student);
 
     Student toStudent(StudentEntity entity);
 

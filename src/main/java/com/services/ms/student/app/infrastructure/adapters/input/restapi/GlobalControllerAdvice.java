@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.services.ms.student.app.domain.exception.StudentNotFoundException;
-import com.services.ms.student.app.domain.model.ErrorResponse;
+import com.services.ms.student.app.infrastructure.adapters.input.restapi.model.response.ErrorResponse;
+
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.STUDENT_NOT_FOUND;
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.INVALID_STUDENT;
 import static com.services.ms.student.app.utils.ErrorCatalogEnum.GENERIC_ERROR;

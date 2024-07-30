@@ -1,4 +1,4 @@
-package com.services.ms.student.app.domain.model;
+package com.services.ms.student.app.infrastructure.adapters.input.restapi.model.response;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -9,8 +9,8 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class StudentResponse {
     private Long id;
     private String firstname;

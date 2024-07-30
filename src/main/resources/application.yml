@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: student-service
+  jackson:
+    default-property-inclusion: non-null
+    property-naming-strategy: SNAKE_CASE
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:15432/students
+    username: students
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect  
+logging:
+  level:
+    '[org.hibernate.sql]': debug
